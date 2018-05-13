@@ -27,6 +27,7 @@
     <link href="css/agency.min.css" rel="stylesheet">
 
 	<link rel="stylesheet prefetch" href="https://npmcdn.com/basscss@8.0.0/css/basscss.min.css">
+  <link rel="stylesheet" href="css/sweetalert.css">
   </head>
 
   <body id="page-top">
@@ -617,25 +618,25 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form id="contactForm" name="sentMessage" novalidate>
+            <form id="form_contact" name="sentMessage" novalidate id="form_contact" method="post">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Nombre" required="required" data-validation-required-message="Por favor, Nombre y Apellido">
+                    <input class="form-control" id="name" type="text" name="nombre" placeholder="Nombre" required="required" data-validation-required-message="Por favor, Nombre y Apellido">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Correo" required="required" data-validation-required-message="Por favor, correo electrónico">
+                    <input class="form-control" id="email" type="email" name="mail" placeholder="Correo" required="required" data-validation-required-message="Por favor, correo electrónico">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="phone" type="tel" placeholder="Telefono" required="required" data-validation-required-message="Por favor, número  de teléfono ">
+                    <input class="form-control" id="phone" type="tel" name="telefono" placeholder="Telefono" required="required" data-validation-required-message="Por favor, número  de teléfono ">
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Mensaje" required data-validation-required-message="Por favor, escriba el mensaje"></textarea>
+                    <textarea class="form-control" id="message" name="mensaje" placeholder="Mensaje" required data-validation-required-message="Por favor, escriba el mensaje"></textarea>
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
@@ -1195,7 +1196,7 @@
     <!-- scroll reveal -->
 
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-
+    <script src="js/sweetalert.min.js"></script>
     <script>
             window.sr = ScrollReveal();
 
@@ -1277,6 +1278,29 @@
                       document.querySelector(this.getAttribute('href')).scrollIntoView({
                           behavior: 'smooth'
                       });
+                  });
+                });
+
+
+                $(document).ready(function(){
+                  $('#form_contact').on('submit',function(e) {  //Don't foget to change the id form
+                  $.ajax({
+                      url:'modulo/email.php', //===PHP file name====
+                      data:$(this).serialize(),
+                      type:'POST',
+                      success:function(data){
+                        console.log(data);
+                        //Success Message == 'Title', 'Message body', Last one leave as it is
+                      swal("¡Enviado!", "Mensaje enviado!", "success");
+                        $('#form_contact').trigger("reset");
+                      },
+                      error:function(data){
+                        console.log(data);
+                        //Error Message == 'Title', 'Message body', Last one leave as it is
+                      swal("Oops...", "A ocurrido un error :(", "error");
+                      }
+                    });
+                    e.preventDefault(); //This is to Avoid Page Refresh and Fire the Event "Click"
                   });
                 });
 
