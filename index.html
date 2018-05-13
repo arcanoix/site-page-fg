@@ -1282,14 +1282,14 @@
                 });
 
 
-                $(document).ready(function(){
+
                   $('#form_contact').on('submit',function(e) {  //Don't foget to change the id form
                   $.ajax({
-                      url:'modulo/email.php', //===PHP file name====
+                      url:'module/email.php', //===PHP file name====
                       data:$(this).serialize(),
                       type:'POST',
                       success:function(data){
-                        console.log(data);
+                        //console.log(data);
                         //Success Message == 'Title', 'Message body', Last one leave as it is
                       swal("¡Enviado!", "Mensaje enviado!", "success");
                         $('#form_contact').trigger("reset");
@@ -1302,7 +1302,7 @@
                     });
                     e.preventDefault(); //This is to Avoid Page Refresh and Fire the Event "Click"
                   });
-                });
+
 
     </script>
 
