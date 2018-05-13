@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* CSS Function Graphics */
+
+.portadaFG{
+	background-image:url( ../img/header-bg.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;  /* PARA QUE LA PORTADA SEA ESTATICA Y EL FONDO ABARQUE TODA LA PANTALLA DEL DISPOSITIVO */
+	background-attachment: fixed; /* PARA CREAR EL EFECTO PARALLAX*/
+	background-repeat: no-repeat;
+}
+
+#services{
+	color: #FFF;
+	background-image: url(../img/fondo3.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+}
+
+#team{
+    
+}
+
+#portfolio{
+    background-image: url(../img/fondo2.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+}
+
+#planesfg{
+	color: #FFF;
+	background-image: url(../img/fondo1.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+}
+
+#contact{
+	color: #FFF;
+	background-image: url(../img/fondo5.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+}
+
+.thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+}
+
+.thumbnail .caption {
+  padding: 9px;
+  font-style: normal;
+  color: #3D3D3D;
+
+}
+
+/* Filtro portafolio */
+
+.tile { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+
+}
+
+
+
+.scale-anm {
+  transform: scale(1);
+}
+
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+
+/* Frase FG */
+
+.bgfrase{
+	background: url( ../img/fondofra.jpg) 50% 0 no-repeat fixed;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	width:100%;
+	margin:0;
+	color: #FFFFFF;
+	height: 100%;
+}
+
+
+.frase{
+	font-size: 2.8rem;
+	color: #FFFFFF;
+	
+}
+
+.fraseicon{
+	font-size: 6.3rem;
+	color: #FFFFFF;
+	
+}
+
+/* ANIMATE FRASE FG */
+
+
+
+
+
+
+
+
+
+/* Por debajo de 460px */
+@media screen and (max-width: 460px){
+		
+
+
+
+.bgfrase{
+	
+	height: 100%;
+}
+
+	}
+
+/* Por debajo de 450px */
+@media screen and (max-width: 450px){
+		
+	.titulomodal{
+		font-size: 1.3rem;
+	}
+	
+.frase{
+	font-size: 1.5rem;
+	
+}
+
+.fraseicon{
+	font-size: 3.2rem;
+	
+}
+	
+
+
+.quote-author {
+	color: #FFFFFF;
+}
+
+
+.bgfrase{
+	
+	height: 500px;
+}
+	
+	}
